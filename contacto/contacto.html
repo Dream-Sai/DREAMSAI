@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="shortcut icon" href="../img/icono.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="stylecontac.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container contact-container">
+        <!-- Columna izquierda -->
+        <div class="contact-info">
+            <img src="../img/logo balnco-Photoroom.png" alt="Logo" class="contact-logo">
+            <h2 class="neon-text">CONTÁCTATE CON NOSOTROS</h2>
+            
+            <div class="contact-details">
+                <a href="https://wa.me/59169917706" class="whatsapp-link">
+                    <i class="fab fa-whatsapp neon-icon whatsapp"></i>
+                    <span>+591 69917706</span>
+                </a>
+                
+                <a href="mailto:dreamsai306@gmail.com" class="email-link">
+                    <i class="fas fa-envelope neon-icon email"></i>
+                    <span>dreamsai306@gmail.com</span>
+                </a>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="neon-icon youtube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="neon-icon tiktok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div> <!-- Cierre del contact-info -->
+
+        <!-- Formulario usando Formsubmit.co -->
+        <form class="contact-form" action="https://formsubmit.co/dreamsai306@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="form-grid">
+                <div class="input-group">
+                    <input type="text" id="nombre" name="nombre" required>
+                    <label for="nombre">Nombre y Apellido</label>
+                    <span class="focus-border"></span>
+                </div>
+                
+                <div class="input-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Correo Electrónico</label>
+                    <span class="focus-border"></span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="asunto" name="asunto" required>
+                <label for="asunto">Asunto</label>
+                <span class="focus-border"></span>
+            </div>
+
+            <div class="input-group">
+                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                <label for="mensaje">Mensaje</label>
+                <span class="focus-border"></span>
+            </div>
+
+            <button type="submit" class="neon-button">
+                <span class="btn-text">Enviar Mensaje</span>
+                <div class="neon-border"></div>
+            </button>
+        </form>
+    </div>
+</body>
+</html>

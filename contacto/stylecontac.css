@@ -1,0 +1,266 @@
+/* Archivo: contacto/stylecontac.css */
+
+:root {
+    --neon-color: #0ff;
+    --bg-color: rgba(60, 70, 70, 0.95); /* Ejemplo más claro */
+    --text-color: #f0f0f0;
+    --font-primary: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('../img/fondo.png') center/cover fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-primary);
+    color: var(--text-color);
+}
+
+.contact-container {
+    position: relative;
+    width: 90%;
+    max-width: 900px;  /* Reducido de 1200px */
+    padding: 25px;
+    background: var(--bg-color);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--neon-color);
+}
+
+/* Efecto borde neon */
+.contact-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--neon-color),
+        #0ff0,
+        var(--neon-color));
+    z-index: -1;
+    border-radius: 15px;
+    animation: neon-glow 3s linear infinite;
+}
+
+@keyframes neon-glow {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 30px;
+    border-right: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.contact-logo {
+    width: 18rem;
+    margin-bottom: 0px;
+    filter: drop-shadow(0 0 10px var(--neon-color));
+}
+
+.neon-text {
+    font-size: 1.6rem;  /* Reducido de 2rem */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--neon-color);
+    text-align: center;
+}
+
+.contact-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.whatsapp-link, .email-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+}
+
+.whatsapp-link:hover, .email-link:hover {
+    background: rgba(0, 255, 255, 0.1);
+    transform: translateX(10px);
+}
+
+.neon-icon {
+    font-size: 1.2rem;
+}
+
+.whatsapp-link .neon-icon {
+    color: #25D366;
+}
+
+.email-link .neon-icon {
+    color: var(--neon-color);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 4px;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.8rem;
+}
+
+.input-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group input:not(:placeholder-shown),
+.input-group textarea:not(:placeholder-shown) {
+    border-color: var(--neon-color);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.input-group input:focus ~ label,
+.input-group textarea:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.7rem;
+    color: var(--neon-color);
+    padding: 0 5px;
+}
+
+.neon-button {
+    position: relative;
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 15px;
+    overflow: hidden;
+    border-radius: 6px;
+    background: rgba(0, 255, 255, 0.1);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.neon-button:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.input-group input,
+.input-group textarea,
+.neon-button {
+    font-family: var(--font-primary);  /* Asegurar misma tipografía */
+    font-weight: 300;                  /* Peso más fino */
+}
+.input-group input,
+.input-group textarea {
+    letter-spacing: 0.3px;
+    /* Efecto de borde sutil */
+    border: 1px solid rgba(255,255,255,0.15) !important;
+}
+
+.input-group:focus-within {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: auto;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 0 8px var(--neon-color));
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        padding: 2px;
+    }
+    
+    .contact-info {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .neon-text {
+        font-size: 1.4rem;
+    }
+    
+    .contact-logo {
+        width: 100px;
+    }
+}

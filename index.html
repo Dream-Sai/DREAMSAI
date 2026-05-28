@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DREAMSAI Servicios de Ingeniería </title>
+    <link rel="shortcut icon" href="img/icono.ico" type="image/x-icon" />
+    <link rel="icon" href="#" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles/mystyles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="wellcome w--opacity">
+
+<nav class="navbar">
+    <a href="#">
+        <img src="img/logo balnco-Photoroom.png" alt="Logo" class="nav-logo">
+    </a>
+    
+    <div class="nav_icon">
+        <i class="nav_enlace_icon fs-4 d-lg-none fa-solid fa-bars text-white"></i>
+    </div>
+
+    <div class="nav__enlaces d-flex flex-column flex-lg-row text-light">
+        <a class="nav__enlace text-light text-decoration-none me-md-5" href="#inicio">INICIO</a>
+        <a class="nav__enlace text-light text-decoration-none me-md-5" href="#productos">PRODUCTOS</a>
+        <a class="nav__enlace text-light text-decoration-none me-md-5" href="#servicios">SERVICIOS</a>
+        <a class="nav__enlace text-light text-decoration-none" href="contacto/contacto.html">CONTACTO</a>
+    </div>
+</nav>
+
+<section class="hero-section" id="inicio">
+  <div class="hero-container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-title">LICENCIAS PERMANENTES DISPONIBLES</h1>
+        <h2 class="hero-subtitle">Licencias Permanentes de Autodesk</h2>
+        <p class="hero-text">
+          Aprovecha nuestra oferta exclusiva y adquiere licencias <strong>100% permanentes</strong> de AutoCAD y Revit. Olvídate de las suscripciones y disfruta de acceso ilimitado, soporte técnico y actualizaciones esenciales. ¡Invierte en tu futuro profesional con herramientas originales y legales!
+        </p>
+        <div class="image-frame" style="background:#25D366; display:flex; flex-direction:column; align-items:center; justify-content:center; height:55px;">
+          <a href="https://wa.me/59169917706" target="_blank" style="color:#fff; font-weight:bold; text-decoration:none; display:flex; align-items:center; font-size:1.1rem;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:22px; vertical-align:middle; margin-right:8px;">
+            69917706
+          </a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="neon-frame">
+          <img src="img/mezcla de iconos.png" alt="Licencias Permanentes de Autodesk" class="hero-image">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN PRODUCTOS -->
+<section id="productos" class="productos container-fluid py-5 bg-dark">
+  <div class="contenedor__principal m-auto text-white px-3">
+    <h2 class="text-center fw-bold mb-5">Nuestros Productos</h2>
+    <div class="row justify-content-center" id="product-catalog"></div>
+    <div class="text-center mt-4">
+      <button id="load-more" class="btn btn-success px-4 py-2 rounded-pill">Mostrar más</button>
+    </div>
+  </div>
+</section>
+
+<!-- Modal de Información -->
+<div id="info-modal" class="info-modal">
+  <div class="info-modal-content">
+    <span class="info-modal-close" id="info-modal-close">&times;</span>
+    <h5 class="mb-3" id="info-modal-title">Información importante</h5>
+    <p id="info-modal-text">
+      Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones.
+    </p>
+  </div>
+</div>
+
+<style>
+/* Modal styles */
+.info-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(44, 62, 80, 0.2);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+}
+.info-modal.active {
+  display: flex;
+}
+.info-modal-content {
+  background: #fff;
+  color: #222;
+  border-radius: 16px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  max-width: 400px;
+  width: 90vw;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  position: relative;
+  text-align: center;
+}
+.info-modal-close {
+  position: absolute;
+  top: 12px; right: 18px;
+  font-size: 1.5rem;
+  color: #4fc3f7;
+  cursor: pointer;
+  font-weight: bold;
+}
+body.info-modal-open {
+  overflow: hidden;
+}
+.card-body .btn-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+}
+.card-body .btn-info-producto,
+.card-body .btn-comprar {
+  min-width: 110px;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+.card-body .btn-info-producto {
+  background: #4fc3f7;
+  color: #fff;
+  border: none;
+}
+.card-body .btn-comprar {
+  background: #198754;
+  color: #fff;
+  border: none;
+}
+#plantillas-load-more, #plantillas-load-less {
+  min-width: 140px;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+.btn-info-plantilla {
+  background: #4fc3f7;
+  color: #fff;
+  border: none;
+  min-width: 110px;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+.btn-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+}
+</style>
+
+<script>
+const productos = [
+  { nombre: "CIVIL 3D 2025", precio: 5.45, imagen: "img/Ico Civil 3D.png", enlace: "https://pay.hotmart.com/P99550552H", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
+  { nombre: "REVIT 2025", precio: 5.45, imagen: "img/Ico REVIT.png", enlace: "https://pay.hotmart.com/P99550552H", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
+ { nombre: "AUTOCAD 2025", precio: 5.45, imagen: "img/Ico AutoCAD.png", enlace: "https://pay.hotmart.com/P99550552H", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
+  { nombre: "AUTOCAD 2025.1", precio: 5.45, imagen: "img/Ico AutoCAD.png", enlace: "...", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
+  { nombre: "QUARK 7.46", precio: 2.49, imagen: "img/Ico QuarK.png", enlace: "...", info: "Software para edición y maquetación profesional. Licencia permanente y soporte incluido." },
+  { nombre: "SAP2000 V20", precio: 2.99, imagen: "img/Ico SAP2000.png", enlace: "...", info: "Análisis y diseño estructural avanzado. Licencia permanente y soporte técnico." },
+  { nombre: "SAP2000 V21", precio: 2.99, imagen: "img/Ico SAP2000.png", enlace: "...", info: "Última versión para análisis estructural. Incluye licencia permanente y asistencia." },
+  { nombre: "GLOBAL MAPPER 22.1", precio: 2.49, imagen: "img/Ico Goblal Mapper.png", enlace: "...", info: "Software GIS para análisis y visualización de datos geoespaciales. Licencia permanente." },
+  { nombre: "PRESCOM", precio: 2.99, imagen: "img/Ico PRESCOM.png", enlace: "...", info: "Software para análisis estructural de concreto preesforzado. Incluye licencia permanente y asistencia técnica." },
+  { nombre: "MAP 2024 ESPAÑOL", precio: 5.45, imagen: "img/Ico AutoCAD MAP 3D.png", enlace: "...", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
+  { nombre: "MAP 2024 INGLES", precio: 5.45, imagen: "img/Ico AutoCAD MAP 3D.png", enlace: "...", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
+  { nombre: "NitroPDF Setup", precio: 2.49, imagen: "img/Ico NitroPDF Setup.png", enlace: "...", info: "Crea, edita y convierte archivos PDF fácilmente. Licencia permanente." },
+  { nombre: "Agisoft Metashape 2.1.2", precio: 2.99, imagen: "img/Ico Agisoft MetaShape.png", enlace: "...", info: "Fotogrametría profesional para generación de modelos 3D. Licencia permanente." }
+];
+</script>
+<script>
+
+const catalog = document.getElementById("product-catalog");
+const loadMoreBtn = document.getElementById("load-more");
+
+// Crear botón Mostrar Menos
+const loadLessBtn = document.createElement("button");
+loadLessBtn.className = "btn btn-secondary px-4 py-2 rounded-pill mt-2";
+loadLessBtn.textContent = "Mostrar menos";
+loadLessBtn.style.display = "none";
+loadLessBtn.id = "load-less";
+
+loadMoreBtn.insertAdjacentElement("afterend", loadLessBtn);
+
+let itemsPerPage = 3;
+let currentIndex = 0;
+
+function renderProductos() {
+  catalog.innerHTML = "";
+  const fragment = document.createDocumentFragment();
+  const productosAMostrar = productos.slice(0, currentIndex);
+
+  productosAMostrar.forEach((prod, idx) => {
+    const card = document.createElement("div");
+    card.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4";
+    card.innerHTML = `
+      <div class="card h-100 shadow-sm">
+        <img src="${prod.imagen}" alt="${prod.nombre}" class="card-img-top" style="height: 150px; object-fit: contain;">
+        <div class="card-body text-center">
+          <h6 class="card-title fw-bold text-dark">${prod.nombre}</h6>
+          <p class="card-text text-success fw-semibold">$${prod.precio.toFixed(2)}</p>
+          <div class="btn-row">
+            <button class="btn btn-info-producto rounded-pill px-3 info-btn" type="button"
+              data-info="${prod.info.replace(/"/g, '&quot;')}"
+              data-title="Información importante">Información</button>
+            <a href="${prod.enlace}" class="btn btn-comprar rounded-pill px-3" target="_blank">Comprar</a>
+          </div>
+        </div>
+      </div>
+    `;
+    fragment.appendChild(card);
+  });
+
+  catalog.appendChild(fragment);
+}
+
+function cargarProductos() {
+  currentIndex += itemsPerPage;
+  if (currentIndex > productos.length) {
+    currentIndex = productos.length;
+  }
+  renderProductos();
+
+  if (currentIndex >= productos.length) {
+    loadMoreBtn.style.display = "none";
+    loadLessBtn.style.display = "inline-block";
+  }
+}
+
+function mostrarMenos() {
+  currentIndex = itemsPerPage;
+  renderProductos();
+  loadMoreBtn.style.display = "inline-block";
+  loadLessBtn.style.display = "none";
+}
+
+currentIndex = itemsPerPage;
+renderProductos();
+
+loadMoreBtn.addEventListener("click", cargarProductos);
+loadLessBtn.addEventListener("click", mostrarMenos);
+</script>
+
+
+<!-- SECCIÓN SERVICIOS -->
+<section id="servicios" class="servicios-modern container-fluid py-5" style="padding-bottom:0;">
+  <div class="contenedor__principal m-auto text-white px-3">
+    <h2 class="text-center fw-bold mb-5">Nuestros Servicios</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8">
+        <div class="servicio-card">
+          <p class="mb-0 fs-5">
+            Ofrecemos <strong>instalación remota profesional</strong> de los principales programas de <strong>Autodesk</strong>, garantizando una experiencia rápida, cómoda y segura para cada cliente. Contamos con <strong>licencias permanentes</strong> disponibles desde las versiones <strong>2020 hasta 2025</strong>, adaptadas a sus necesidades técnicas y operativas.
+            <br><br>
+            ¿Tiene dudas o necesita asesoría? <em><strong>Contáctenos</strong></em> y reciba atención personalizada por parte de nuestro equipo técnico especializado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="display:block; width:100%; height:auto;">
+  <defs>
+    <linearGradient id="wave-gradient" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#23272f"/>
+      <stop offset="200%" stop-color="#1f1f1f"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#wave-gradient)" fill-opacity="1"
+    d="M0,96L120,122.7C240,149,480,203,720,218.7C960,235,1200,213,1320,202.7L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
+  </path>
+</svg>
+
+<!-- FOOTER -->
+<footer class="footer text-white py-5" id="contacto" style="background:#1f1f1f;">
+  <div class="container">
+    <div class="row justify-content-center text-center text-md-start">
+      <div class="col-12 col-md-10 mx-auto d-flex flex-column flex-md-row justify-content-between align-items-center text-white">
+        <div class="mb-4 mb-md-0 text-center">
+          <img src="img/logo balnco-Photoroom.png" alt="Logo DREAMSAI" class="footer-logo mb-2">
+        </div>
+        <div class="mb-4 mb-md-0 text-center">
+          <h5 class="fw-bold mb-2">Contáctanos</h5>
+          <p class="mb-1"><i class="fa-solid fa-phone me-2"></i> +591 69917706</p>
+          <p><i class="fa-solid fa-envelope me-2"></i> dreamsai306@gmail.com</p>
+        </div>
+        <div class="text-center">
+          <h5 class="fw-bold mb-2">Síguenos</h5>
+          <a href="#" class="text-white me-3 fs-4"><i class="fab fa-youtube neon-icon youtube"></i></a>
+          <a href="#" class="text-white fs-4"><i class="fab fa-tiktok neon-icon tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4 border-light">
+    <p class="text-center small mb-0">&copy; 2025 DREAMSAI. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+<script defer src="js/index.js"></script>
+<script>
+    const navToggle = document.querySelector('.nav_icon');
+    const navLinks = document.querySelector('.nav__enlaces');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('nav__enlaces__visible');
+    });
+    document.querySelectorAll('.nav__enlace').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('nav__enlaces__visible');
+      });
+    });
+</script>
+<script>
+  // Mostrar solo 3 plantillas al inicio, el resto ocultas
+  const plantillasItems = document.querySelectorAll('#plantillas-list .plantilla-item');
+  const plantillasLoadMore = document.getElementById('plantillas-load-more');
+  const plantillasLoadLess = document.getElementById('plantillas-load-less');
+  const PLANTILLAS_VISIBLE = 3;
+
+  function mostrarPlantillas(n) {
+    plantillasItems.forEach((item, idx) => {
+      item.style.display = idx < n ? '' : 'none';
+    });
+  }
+
+  mostrarPlantillas(PLANTILLAS_VISIBLE);
+
+  plantillasLoadMore.addEventListener('click', () => {
+    mostrarPlantillas(plantillasItems.length);
+    plantillasLoadMore.style.display = 'none';
+    plantillasLoadLess.style.display = 'inline-block';
+  });
+
+  plantillasLoadLess.addEventListener('click', () => {
+    mostrarPlantillas(PLANTILLAS_VISIBLE);
+    plantillasLoadMore.style.display = 'inline-block';
+    plantillasLoadLess.style.display = 'none';
+  });
+</script>
+<script>
+  // Modal lógica dinámica para productos y plantillas
+  const infoModal = document.getElementById("info-modal");
+  const infoModalClose = document.getElementById("info-modal-close");
+  const infoModalText = document.getElementById("info-modal-text");
+  const infoModalTitle = document.getElementById("info-modal-title");
+
+  document.body.addEventListener("click", function(e) {
+    if (e.target.classList.contains("info-btn")) {
+      const info = e.target.getAttribute("data-info") || "Sin información.";
+      const title = "Información importante";
+      infoModalText.textContent = info;
+      infoModalTitle.textContent = title;
+      infoModal.classList.add("active");
+      document.body.classList.add("info-modal-open");
+    }
+    if (e.target === infoModalClose) {
+      infoModal.classList.remove("active");
+      document.body.classList.remove("info-modal-open");
+    }
+  });
+  infoModal.addEventListener("click", (e) => {
+    if (e.target === infoModal) {
+      infoModal.classList.remove("active");
+      document.body.classList.remove("info-modal-open");
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && infoModal.classList.contains("active")) {
+      infoModal.classList.remove("active");
+      document.body.classList.remove("info-modal-open");
+    }
+  });
+</script>
+
+</body>
+</html>
