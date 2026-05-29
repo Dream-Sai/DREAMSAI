@@ -67,7 +67,7 @@
     <h2 class="text-center fw-bold mb-5">Nuestros Productos</h2>
     <div class="row justify-content-center" id="product-catalog"></div>
     <div class="text-center mt-4">
-      <button id="load-more" class="btn btn-success px-4 py-2 rounded-pill">Mostrar más</button>
+      
     </div>
   </div>
 </section>
@@ -167,92 +167,73 @@ body.info-modal-open {
 
 <script>
 const productos = [
-  { nombre: "CIVIL 3D 2025", precio: 5.45, imagen: "img/Ico Civil 3D.png", enlace: "https://pay.hotmart.com/P99550552H", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
-  { nombre: "REVIT 2025", precio: 5.45, imagen: "img/Ico REVIT.png", enlace: "https://pay.hotmart.com/P99550552H", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
- { nombre: "AUTOCAD 2025", precio: 5.45, imagen: "img/Ico AutoCAD.png", enlace: "https://pay.hotmart.com/P99550552H", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
-  { nombre: "AUTOCAD 2025.1", precio: 5.45, imagen: "img/Ico AutoCAD.png", enlace: "...", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
-  { nombre: "QUARK 7.46", precio: 2.49, imagen: "img/Ico QuarK.png", enlace: "...", info: "Software para edición y maquetación profesional. Licencia permanente y soporte incluido." },
-  { nombre: "SAP2000 V20", precio: 2.99, imagen: "img/Ico SAP2000.png", enlace: "...", info: "Análisis y diseño estructural avanzado. Licencia permanente y soporte técnico." },
-  { nombre: "SAP2000 V21", precio: 2.99, imagen: "img/Ico SAP2000.png", enlace: "...", info: "Última versión para análisis estructural. Incluye licencia permanente y asistencia." },
-  { nombre: "GLOBAL MAPPER 22.1", precio: 2.49, imagen: "img/Ico Goblal Mapper.png", enlace: "...", info: "Software GIS para análisis y visualización de datos geoespaciales. Licencia permanente." },
-  { nombre: "PRESCOM", precio: 2.99, imagen: "img/Ico PRESCOM.png", enlace: "...", info: "Software para análisis estructural de concreto preesforzado. Incluye licencia permanente y asistencia técnica." },
-  { nombre: "MAP 2024 ESPAÑOL", precio: 5.45, imagen: "img/Ico AutoCAD MAP 3D.png", enlace: "...", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
-  { nombre: "MAP 2024 INGLES", precio: 5.45, imagen: "img/Ico AutoCAD MAP 3D.png", enlace: "...", info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." },
-  { nombre: "NitroPDF Setup", precio: 2.49, imagen: "img/Ico NitroPDF Setup.png", enlace: "...", info: "Crea, edita y convierte archivos PDF fácilmente. Licencia permanente." },
-  { nombre: "Agisoft Metashape 2.1.2", precio: 2.99, imagen: "img/Ico Agisoft MetaShape.png", enlace: "...", info: "Fotogrametría profesional para generación de modelos 3D. Licencia permanente." }
+  { 
+    nombre: "CIVIL 3D 2025", 
+    precio: 5.45, 
+    imagen: "img/Ico Civil 3D.png", 
+    enlace: "https://pay.hotmart.com/P99550552H", 
+    info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." 
+  },
+
+  { 
+    nombre: "REVIT 2025", 
+    precio: 5.45, 
+    imagen: "img/Ico REVIT.png", 
+    enlace: "https://pay.hotmart.com/P99550552H", 
+    info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." 
+  },
+
+  { 
+    nombre: "AUTOCAD 2025", 
+    precio: 5.45, 
+    imagen: "img/Ico AutoCAD.png", 
+    enlace: "https://pay.hotmart.com/P99550552H", 
+    info: "Esta licencia es permanente y se activa a través de LMTOOLS, una herramienta que puede resultar algo confusa si no tienes experiencia previa con este tipo de instalaciones. Es normal tener dudas durante el proceso, así que no dudes en escribirnos. Estamos aquí para ayudarte a que todo funcione sin complicaciones." 
+  }
 ];
 </script>
 <script>
-
 const catalog = document.getElementById("product-catalog");
-const loadMoreBtn = document.getElementById("load-more");
-
-// Crear botón Mostrar Menos
-const loadLessBtn = document.createElement("button");
-loadLessBtn.className = "btn btn-secondary px-4 py-2 rounded-pill mt-2";
-loadLessBtn.textContent = "Mostrar menos";
-loadLessBtn.style.display = "none";
-loadLessBtn.id = "load-less";
-
-loadMoreBtn.insertAdjacentElement("afterend", loadLessBtn);
-
-let itemsPerPage = 3;
-let currentIndex = 0;
 
 function renderProductos() {
   catalog.innerHTML = "";
-  const fragment = document.createDocumentFragment();
-  const productosAMostrar = productos.slice(0, currentIndex);
 
-  productosAMostrar.forEach((prod, idx) => {
+  productos.forEach((prod) => {
     const card = document.createElement("div");
+
     card.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4";
+
     card.innerHTML = `
       <div class="card h-100 shadow-sm">
         <img src="${prod.imagen}" alt="${prod.nombre}" class="card-img-top" style="height: 150px; object-fit: contain;">
+
         <div class="card-body text-center">
           <h6 class="card-title fw-bold text-dark">${prod.nombre}</h6>
-          <p class="card-text text-success fw-semibold">$${prod.precio.toFixed(2)}</p>
+
+          <p class="card-text text-success fw-semibold">
+            $${prod.precio.toFixed(2)}
+          </p>
+
           <div class="btn-row">
-            <button class="btn btn-info-producto rounded-pill px-3 info-btn" type="button"
-              data-info="${prod.info.replace(/"/g, '&quot;')}"
-              data-title="Información importante">Información</button>
-            <a href="${prod.enlace}" class="btn btn-comprar rounded-pill px-3" target="_blank">Comprar</a>
+            <button class="btn btn-info-producto rounded-pill px-3 info-btn"
+              type="button"
+              data-info="${prod.info.replace(/"/g, '&quot;')}">
+              Información
+            </button>
+
+            <a href="${prod.enlace}" class="btn btn-comprar rounded-pill px-3" target="_blank">
+              Comprar
+            </a>
           </div>
         </div>
       </div>
     `;
-    fragment.appendChild(card);
+
+    catalog.appendChild(card);
   });
-
-  catalog.appendChild(fragment);
 }
 
-function cargarProductos() {
-  currentIndex += itemsPerPage;
-  if (currentIndex > productos.length) {
-    currentIndex = productos.length;
-  }
-  renderProductos();
-
-  if (currentIndex >= productos.length) {
-    loadMoreBtn.style.display = "none";
-    loadLessBtn.style.display = "inline-block";
-  }
-}
-
-function mostrarMenos() {
-  currentIndex = itemsPerPage;
-  renderProductos();
-  loadMoreBtn.style.display = "inline-block";
-  loadLessBtn.style.display = "none";
-}
-
-currentIndex = itemsPerPage;
 renderProductos();
-
-loadMoreBtn.addEventListener("click", cargarProductos);
-loadLessBtn.addEventListener("click", mostrarMenos);
 </script>
 
 
